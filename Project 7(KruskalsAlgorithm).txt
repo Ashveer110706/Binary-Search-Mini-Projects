@@ -1,0 +1,89 @@
+public class KruskalsAlgorithm {
+
+    static int find(int[] parent, int vertex) {
+
+        while (parent[vertex] != vertex) {
+            vertex = parent[vertex];
+        }
+
+        return vertex;
+    }
+
+    static void union(int[] parent, int a, int b) {
+
+        int rootA = find(parent, a);
+        int rootB = find(parent, b);
+
+        parent[rootB] = rootA;
+    }
+
+    public static void main(String[] args) {
+
+        int[][] edges = {
+            {0, 1, 2},
+            {1, 2, 3},
+            {0, 3, 6},
+            {1, 4, 5},
+            {2, 4, 7},
+            {3, 4, 9},
+            {1, 3, 8}
+        };
+
+        int vertices = 5;
+
+        // Sort edges by weight
+        for (int i = 0; i < edges.length - 1; i++) {
+
+            for (int j = 0; j < edges.length - 1 - i; j++) {
+
+                if (edges[j][2] > edges[j + 1][2]) {
+
+                    int[] temp = edges[j];
+                    edges[j] = edges[j + 1];
+                    edges[j + 1] = temp;
+                }
+            }
+        }
+
+        int[] parent = new int[vertices];
+
+        for (int i = 0; i < vertices; i++) {
+            parent[i] = i;
+        }
+
+        int totalCost = 0;
+        int selectedEdges = 0;
+
+        System.out.println("Kruskal's Algorithm");
+        System.out.println("-------------------");
+
+        for (int i = 0; i < edges.length; i++) {
+
+            int source = edges[i][0];
+            int destination = edges[i][1];
+            int weight = edges[i][2];
+
+            int rootA = find(parent, source);
+            int rootB = find(parent, destination);
+
+            // Add edge only if it does not create a cycle
+            if (rootA != rootB) {
+
+                System.out.println("Edge: " + source + " - "
+                        + destination + "  Weight: " + weight);
+
+                totalCost = totalCost + weight;
+
+                union(parent, source, destination);
+
+                selectedEdges++;
+
+                if (selectedEdges == vertices - 1) {
+                    break;
+                }
+            }
+        }
+
+        System.out.println("\nMinimum Spanning Tree Cost: " + totalCost);
+    }
+}
