@@ -1,0 +1,70 @@
+public class SortingRace {
+
+    public static void main(String[] args) {
+
+        int[] arr1 = {64, 25, 12, 22, 11};
+        int[] arr2 = {64, 25, 12, 22, 11};
+
+        int bubbleComparisons = 0;
+        int selectionComparisons = 0;
+
+        // Bubble Sort
+        for (int i = 0; i < arr1.length - 1; i++) {
+
+            for (int j = 0; j < arr1.length - 1 - i; j++) {
+
+                bubbleComparisons++;
+
+                if (arr1[j] > arr1[j + 1]) {
+
+                    int temp = arr1[j];
+                    arr1[j] = arr1[j + 1];
+                    arr1[j + 1] = temp;
+                }
+            }
+        }
+
+        // Selection Sort
+        for (int i = 0; i < arr2.length - 1; i++) {
+
+            int min = i;
+
+            for (int j = i + 1; j < arr2.length; j++) {
+
+                selectionComparisons++;
+
+                if (arr2[j] < arr2[min]) {
+                    min = j;
+                }
+            }
+
+            int temp = arr2[i];
+            arr2[i] = arr2[min];
+            arr2[min] = temp;
+        }
+
+        System.out.println("Sorting Race");
+        System.out.println("----------------");
+
+        System.out.println("Bubble Sort comparisons: " + bubbleComparisons);
+        System.out.println("Selection Sort comparisons: " + selectionComparisons);
+
+        System.out.println("\nSorted Array:");
+
+        for (int i = 0; i < arr1.length; i++) {
+            System.out.print(arr1[i] + " ");
+        }
+
+        System.out.println();
+
+        if (bubbleComparisons < selectionComparisons) {
+            System.out.println("Bubble Sort wins!");
+        } 
+        else if (selectionComparisons < bubbleComparisons) {
+            System.out.println("Selection Sort wins!");
+        } 
+        else {
+            System.out.println("It's a tie!");
+        }
+    }
+}
