@@ -1,0 +1,59 @@
+public class SearchRace {
+
+    public static void main(String[] args) {
+
+        int[] arr = new int[100];
+
+        // Create a sorted array from 1 to 100
+        for (int i = 0; i < 100; i++) {
+            arr[i] = i + 1;
+        }
+
+        int target = 87;
+
+        // Linear Search
+        int linearSteps = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            linearSteps++;
+
+            if (arr[i] == target) {
+                break;
+            }
+        }
+
+        // Binary Search
+        int low = 0;
+        int high = arr.length - 1;
+        int binarySteps = 0;
+
+        while (low <= high) {
+
+            int mid = (low + high) / 2;
+
+            binarySteps++;
+
+            if (arr[mid] == target) {
+                break;
+            } 
+            else if (arr[mid] < target) {
+                low = mid + 1;
+            } 
+            else {
+                high = mid - 1;
+            }
+        }
+
+        System.out.println("Target: " + target);
+        System.out.println("Linear Search steps: " + linearSteps);
+        System.out.println("Binary Search steps: " + binarySteps);
+
+        if (binarySteps < linearSteps) {
+            System.out.println("Binary Search wins!");
+        } 
+        else {
+            System.out.println("Linear Search wins!");
+        }
+    }
+}

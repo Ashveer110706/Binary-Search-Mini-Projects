@@ -1,0 +1,41 @@
+public class TreasureHunt {
+
+    public static void main(String[] args) {
+
+        int low = 1;
+        int high = 100;
+        int treasure = 73;
+        int attempts = 0;
+
+        System.out.println("Treasure Hunt");
+        System.out.println("Find the treasure between 1 and 100!");
+
+        while (low <= high) {
+
+            int mid = (low + high) / 2;
+
+            System.out.println("Searching at: " + mid);
+
+            attempts++;
+
+            if (mid == treasure) {
+
+                System.out.println("Treasure Found!");
+                System.out.println("Attempts: " + attempts);
+                break;
+
+            } 
+            else if (mid < treasure) {
+
+                System.out.println("Treasure is HIGHER!");
+                low = mid + 1;
+
+            } 
+            else {
+
+                System.out.println("Treasure is LOWER!");
+                high = mid - 1;
+            }
+        }
+    }
+}
