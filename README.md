@@ -29,6 +29,51 @@ Selects the maximum number of non-overlapping activities using the **Greedy Algo
 
 **Concept:** Activity Selection, Greedy Algorithm
 
+### 6. Prim's Algorithm
+Finds the **Minimum Spanning Tree (MST)** of a weighted graph using Prim's greedy approach.
+
+**Concepts:** Greedy Algorithm, Minimum Spanning Tree, Graph
+
+### 7. Kruskal's Algorithm
+Finds the **Minimum Spanning Tree (MST)** by selecting the smallest edges while avoiding cycles.
+
+**Concepts:** Greedy Algorithm, Minimum Spanning Tree, Graph
+
+### 8. Dijkstra's Algorithm
+Finds the **shortest distance from a starting vertex to all other vertices** in a weighted graph.
+
+**Concepts:** Greedy Algorithm, Shortest Path, Graph
+
+## Algorithms Covered
+
+| Project | Algorithm | Purpose |
+|---|---|---|
+| Number Guessing Game | Binary Search | Number Searching |
+| Search Race | Linear Search | Searching |
+| Search Race | Binary Search | Searching |
+| Treasure Hunt | Binary Search | Number Searching |
+| Sorting Race | Bubble Sort | Sorting |
+| Sorting Race | Selection Sort | Sorting |
+| Activity Scheduler | Greedy | Activity Selection |
+| Prim's Algorithm | Greedy | Minimum Spanning Tree |
+| Kruskal's Algorithm | Greedy | Minimum Spanning Tree |
+| Dijkstra's Algorithm | Greedy | Shortest Path |
+
+## Time Complexity
+
+| Algorithm | Time Complexity |
+|---|---|
+| Linear Search | O(n) |
+| Binary Search | O(log n) |
+| Bubble Sort | O(n²) |
+| Selection Sort | O(n²) |
+| Activity Selection | O(n) |
+| Prim's Algorithm | O(V²) |
+| Kruskal's Algorithm | O(E log E) |
+| Dijkstra's Algorithm | O(V²) |
+
+> The Prim's and Dijkstra's implementations in this repository use a simple adjacency-matrix approach, giving O(V²) time complexity.
+
 ## Technologies Used
 
 - Java
@@ -36,27 +81,16 @@ Selects the maximum number of non-overlapping activities using the **Greedy Algo
 - Searching Algorithms
 - Sorting Algorithms
 - Greedy Algorithms
-
-## Algorithms Covered
-
-| Project | Algorithm | Complexity |
-|---|---|---|
-| Number Guessing Game | Binary Search | O(log n) |
-| Search Race | Linear Search | O(n) |
-| Search Race | Binary Search | O(log n) |
-| Treasure Hunt | Binary Search | O(log n) |
-| Sorting Race | Bubble Sort | O(n²) |
-| Sorting Race | Selection Sort | O(n²) |
-| Activity Scheduler | Greedy Algorithm | O(n)* |
-
-\* Activity Selection is O(n) when activities are already sorted by finish time.
+- Graph Algorithms
 
 ## Learning Objectives
 
 - Understand searching algorithms through practical examples.
 - Compare the efficiency of different algorithms.
 - Understand basic sorting techniques.
-- Apply the Greedy Algorithm to real-world scheduling problems.
+- Apply Greedy Algorithms to real-world problems.
+- Understand Minimum Spanning Trees.
+- Find shortest paths in weighted graphs.
 - Improve Java programming and algorithmic problem-solving skills.
 
 ## How to Run
@@ -68,5 +102,5 @@ Selects the maximum number of non-overlapping activities using the **Greedy Algo
 Example:
 
 ```bash
-javac SortingRace.java
-java SortingRace
+javac DijkstrasAlgorithm.java
+java DijkstrasAlgorithm
